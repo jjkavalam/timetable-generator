@@ -1,0 +1,109 @@
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+A task scheduler
+\end_layout
+
+\begin_layout Section
+Requirements
+\end_layout
+
+\begin_layout Standard
+The benefits required from the scheduler are:
+\end_layout
+
+\begin_layout Enumerate
+Given a task with its deadline and time required the scheduler should schedule
+ it over days considering the time available on each day.
+\end_layout
+
+\begin_layout LyX-Code
+Algorithm:
+\end_layout
+
+\begin_layout LyX-Code
+task ==> taskid, deadline, time_required
+\end_layout
+
+\begin_layout LyX-Code
+day  ==> date, time_available, tasks
+\end_layout
+
+\begin_layout LyX-Code
+ 
+\end_layout
+
+\begin_layout LyX-Code
+Consider tasks in the order of deadlines - nearest deadline first
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Let task be (t,D,n).
+\end_layout
+
+\begin_layout LyX-Code
+Starting today schedule it over each day d as:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+dt = td-t0-2
+\end_layout
+
+\begin_layout LyX-Code
+d0...d[n%dt] <== 1 + (n/dt)
+\end_layout
+
+\begin_layout LyX-Code
+d[n%dt]...d[td-2] <== (n/dt)
+\end_layout
+
+\begin_layout LyX-Code
+if no slots left for the day pass
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_body
+\end_document
